@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download YouTube Videos</title>
+  </head>
+  <body>
+    <form id="youtube-downloader">
+      <label for="video-url">Enter YouTube Video URL:</label>
+      <input type="text" id="video-url" name="video-url"><br><br>
+      <label for="resolution">Select Resolution:</label>
+      <select id="resolution" name="resolution">
+        <option value="1080">1080p</option>
+        <option value="720">720p</option>
+        <option value="480">480p</option>
+        <option value="360">360p</option>
+      </select><br><br>
+      <button type="submit" onclick="downloadVideo()">Download</button>
+    </form>
+
+    <script>
+      function downloadVideo() {
+        // Get the URL and resolution values from the form
+        var videoUrl = document.getElementById('video-url').value;
+        var resolution = document.getElementById('resolution').value;
+
+        // Send the video URL and resolution to the PHP file for processing and downloading
+        window.location.href = "download.php?url=" + videoUrl + "&resolution=" + resolution;
+      }
+    </script>
+  </html>
